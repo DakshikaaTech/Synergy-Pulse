@@ -2,7 +2,7 @@
 A website that has its own Pulse ❤️‍🔥
 
 <img width="959" height="472" alt="final_pulse" src="https://github.com/user-attachments/assets/9e1840cb-0464-4e05-897d-8295d822f589" />
-You can try out my Pulse website her: https://dakshikaatech.github.io/Synergy-Pulse/
+You can try out my Pulse website here: https://dakshikaatech.github.io/Synergy-Pulse/
 
 # Features:
 - Title and Logo
