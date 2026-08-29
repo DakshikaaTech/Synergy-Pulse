@@ -21,8 +21,8 @@ You can try out my Pulse website here: https://dakshikaatech.github.io/Synergy-P
 Well, I love New York City 🏙️🌆, The Big Apple 🍏, The City That Never Sleeps 😴 !!!*
 
 # Credits:
-- https://cdnjs.cloudfare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
-- https://www.google.com/search
-- https://api.nasa.gov/planetary/apod?api_key
-- https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en
-- https://api.open-meteo.com/v1/forecast?
+- https://cdnjs.cloudfare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css {For Styling}
+- https://www.google.com/search {For Google search}
+- https://api.nasa.gov/planetary/apod?api_key {For NASA APOD background}
+- https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en {For Google News Articles}
+- https://api.open-meteo.com/v1/forecast? {For Weather Forecast}
