@@ -78,6 +78,118 @@
             text-shadow: 0 1px 5px rgba(0,0,0,0.5);
         }
 
+        .main-wrapper {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            z-index: 2;
+            margin: auto 0;
+            gap: 20px;
+        }
+
+        .side-widget {
+            width: 260px;
+            background: rgba(15, 23, 42, 0.75);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .widget-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #38bdf8;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            padding-bottom: 8px;
+        }
+
+        .weather-info {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            font-size: 13px;
+            color: #cbd5e1;
+        }
+
+        .weather-temp {
+            font-size: 28px;
+            font-weight: 800;
+            color: #f8fafc;
+        }
+
+        .todo-input-box {
+            display: flex;
+            gap: 6px;
+        }
+
+        .todo-input {
+            flex: 1;
+            background: rgba(5, 11, 20, 0.6);
+            border: 1px solid rgba(56, 189, 248, 0.3);
+            border-radius: 8px;
+            padding: 6px 10px;
+            color: #f8fafc;
+            font-size: 12px;
+            outline: none;
+        }
+
+        .todo-add-btn {
+            background: #38bdf8;
+            border: none;
+            border-radius: 8px;
+            color: #050b14;
+            padding: 6px 10px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+
+        .todo-add-btn:hover {
+            opacity: 0.85;
+        }
+
+        .todo-list {
+            list-style: none;
+            max-height: 140px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .todo-item {
+            background: rgba(5, 11, 20, 0.4);
+            padding: 6px 10px;
+            border-radius: 6px;
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #e2e8f0;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .todo-delete {
+            background: none;
+            border: none;
+            color: #ef4444;
+            cursor: pointer;
+            font-size: 11px;
+        }
+
         .main-container {
             width: 100%;
             max-width: 650px;
@@ -200,6 +312,16 @@
             text-shadow: 0 1px 5px rgba(0,0,0,0.8);
         }
 
+        @media (max-width: 900px) {
+            .main-wrapper {
+                flex-direction: column;
+            }
+            .side-widget {
+                width: 100%;
+                max-width: 650px;
+            }
+        }
+
         @media (max-width: 600px) {
             header {
                 justify-content: center;
@@ -214,7 +336,6 @@
 </head>
 
 <body>
-    <!-- Configuration Script First -->
     <script src="config.js"></script>
 
     <div class="bg-container" id="apodBg"></div>
@@ -226,26 +347,45 @@
         </div> 
     </header>
 
-    <div class="main-container">
-        <h1 class="welcome-title">Synergy<span>Pulse</span></h1>
-        <form class="search-form" action="https://www.google.com/search" method="GET" target="_blank">
-            <i class="fa-solid fa-magnifying-glass search-icon"></i>
-            <input type="text" name="q" class="search-input" placeholder="Search the web or type a command..." autocomplete="off">
-        </form>
+    <div class="main-wrapper">
+        <div class="side-widget">
+            <div class="widget-title"><i class="fa-solid fa-cloud-sun"></i> Weather Hub</div>
+            <div class="weather-info" id="weatherWidgetContent">
+                <div class="weather-temp">--°C</div>
+                <div>Fetching telemetry...</div>
+            </div>
+        </div>
 
-        <div class="social-bar">
-            <a href="https://github.com" target="_blank" class="social-btn">
-                <i class="fa-brands fa-github"></i> Github
-            </a>
-            <a href="https://linkedin.com" target="_blank" class="social-btn">
-                <i class="fa-brands fa-linkedin-in"></i> LinkedIn
-            </a>
-            <a href="https://instagram.com" target="_blank" class="social-btn">
-                <i class="fa-brands fa-instagram"></i> Instagram
-            </a>
-            <a href="https://youtube.com" target="_blank" class="social-btn">
-                <i class="fa-brands fa-youtube"></i> Youtube
-            </a>
+        <div class="main-container">
+            <h1 class="welcome-title">Synergy<span>Pulse</span></h1>
+            <form class="search-form" action="https://www.google.com/search" method="GET" target="_blank">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" name="q" class="search-input" placeholder="Search the web or type a command..." autocomplete="off">
+            </form>
+
+            <div class="social-bar">
+                <a href="https://github.com" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-github"></i> Github
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a href="https://instagram.com" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-instagram"></i> Instagram
+                </a>
+                <a href="https://youtube.com" target="_blank" class="social-btn">
+                    <i class="fa-brands fa-youtube"></i> Youtube
+                </a>
+            </div>
+        </div>
+
+        <div class="side-widget">
+            <div class="widget-title"><i class="fa-solid fa-list-check"></i> Command Tasks</div>
+            <div class="todo-input-box">
+                <input type="text" id="todoInput" class="todo-input" placeholder="Add directive...">
+                <button id="todoAddBtn" class="todo-add-btn"><i class="fa-solid fa-plus"></i></button>
+            </div>
+            <ul class="todo-list" id="todoList"></ul>
         </div>
     </div>
 
@@ -316,6 +456,85 @@
         }
 
         loadNewsFeed();
+
+        /* --- Updated: Asynchronous Function to Fetch and Render Weather Telemetry Data using Geolocation --- */
+        async function loadWeather() {
+            const weatherContainer = document.getElementById('weatherWidgetContent');
+            
+            const fetchWeather = async (lat, lon, locationLabel) => {
+                try {
+                    const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&current_weather=true&longitude=${lon}`);
+                    const data = await res.json();
+                    if(data && data.current_weather) {
+                        const temp = data.current_weather.temperature;
+                        weatherContainer.innerHTML = `
+                            <div class="weather-temp">${temp}°C</div>
+                            <div>Conditions: Clear / Active</div>
+                            <div>Location: ${locationLabel}</div>
+                        `;
+                    }
+                } catch (err) {
+                    weatherContainer.innerHTML = `<div>Weather telemetry offline</div>`;
+                }
+            };
+
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        const lat = position.coords.latitude;
+                        const lon = position.coords.longitude;
+                        fetchWeather(lat, lon, `[${lat.toFixed(2)}, ${lon.toFixed(2)}]`);
+                    },
+                    (error) => {
+                        console.warn("Geolocation permission denied or unavailable. Falling back to default coordinates.", error);
+                        fetchWeather(40.7128, -74.0060, "[40.71, -74.01]");
+                    }
+                );
+            } else {
+                fetchWeather(40.7128, -74.0060, "[40.71, -74.01]");
+            }
+        }
+        
+        loadWeather();
+
+        const todoInput = document.getElementById('todoInput');
+        const todoAddBtn = document.getElementById('todoAddBtn');
+        const todoList = document.getElementById('todoList');
+
+        let tasks = JSON.parse(localStorage.getItem('synergy_tasks')) || [];
+
+        function renderTasks() {
+            todoList.innerHTML = '';
+            tasks.forEach((task, index) => {
+                const li = document.createElement('li');
+                li.className = 'todo-item';
+                li.innerHTML = `<span>${task}</span><button class="todo-delete" onclick="removeTask(${index})"><i class="fa-solid fa-xmark"></i></button>`;
+                todoList.appendChild(li);
+            });
+            localStorage.setItem('synergy_tasks', JSON.stringify(tasks));
+        }
+
+        function addTask() {
+            const val = todoInput.value.trim();
+            if(val) {
+                tasks.push(val);
+                todoInput.value = '';
+                renderTasks();
+            }
+        }
+
+        window.removeTask = function(index) {
+            tasks.splice(index, 1);
+            renderTasks();
+        }
+
+        todoAddBtn.addEventListener('click', addTask);
+        todoInput.addEventListener('keypress', (e) => {
+            if(e.key === 'Enter') addTask();
+        });
+
+        renderTasks();
     </script>
 </body>
 </html>
+
