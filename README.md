@@ -22,3 +22,7 @@ Well, I love New York City 🏙️🌆, The Big Apple 🍏, The City That Never 
 
 # Credits:
 - https://cdnjs.cloudfare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css
+- https://www.google.com/search
+- https://api.nasa.gov/planetary/apod?api_key
+- https://news.google.com/rss?hl=en-US&gl=US&ceid=US:en
+- https://api.open-meteo.com/v1/forecast?
